@@ -6,8 +6,6 @@ export async function getWorkouts(
     categoriesSelected: (string | null)[] | never[];
   }
 ) {
-  console.log({ offset, filters });
-
   const response = await fetch(
     `/api/workouts?offset=${offset}&limit=${resultPerPage}${
       filters.monthSelected ? "&monthSelected=" + filters.monthSelected : ""

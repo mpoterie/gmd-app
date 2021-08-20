@@ -1,4 +1,4 @@
-.App {
+body {
   background-color: #f9f6f4;
 }
 
@@ -174,4 +174,41 @@
 .filter-section div {
   padding: 0.2rem;
   border-radius: 6px;
+}
+
+.workout-image {
+  width: 100%;
+}
+
+.workout-infos div {
+  font-weight: 400;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.workout-infos .description {
+  text-align: justify;
+}
+
+.workout-infos .category {
+  text-align: center;
+}
+
+.workout-infos .date {
+  font-size: 12px;
+  min-width: 10rem;
+}
+
+.workout-infos {
+  display: flex;
+  font-weight: 400;
+}
+
+.previous-page {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2rem 0;
 }
