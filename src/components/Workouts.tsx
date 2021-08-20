@@ -118,6 +118,7 @@ export const Workouts = () => {
               onChange={(valueSelected) =>
                 setQuery((latest) => ({
                   ...latest,
+                  offset: 0,
                   monthSelected: valueSelected?.value ?? undefined,
                 }))
               }
@@ -138,6 +139,7 @@ export const Workouts = () => {
               onChange={(valuesSelected) =>
                 setQuery((latest) => ({
                   ...latest,
+                  offset: 0,
                   categoriesSelected: valuesSelected.map(
                     (valueSelected) => valueSelected.value
                   ),
@@ -183,6 +185,7 @@ export const Workouts = () => {
           {query.pageCount && query.pageCount > 1 ? (
             <div className="paginate-container">
               <ReactPaginate
+                forcePage={query.offset ? query.offset / RESULTS_PER_PAGE : 0}
                 previousLabel={"previous"}
                 nextLabel={"next"}
                 breakLabel={"..."}

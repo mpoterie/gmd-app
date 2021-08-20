@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { getWorkout } from "../services/WorkoutService";
 import { useHistory } from "react-router-dom";
@@ -25,11 +25,11 @@ export const Workout = () => {
   const { id } = useParams<WorkoutRouteParams>();
   const [workout, setWorkout] = useState<Workout | undefined>(undefined);
 
-  const fetchWorkout = () => {
+  const fetchWorkout = useCallback(() => {
     getWorkout(id).then((result) => {
       setWorkout(result[0]);
     });
-  };
+  }, [id]);
 
   // Fetching the data initally
   useEffect(() => fetchWorkout(), [fetchWorkout]);
@@ -45,7 +45,7 @@ export const Workout = () => {
       {workout ? (
         <>
           <h3>{workout.name}t</h3>
-          <img className="workout-image" src={workout.img} />
+          <img className="workout-image" src={workout.img} alt={workout.name} />
           <div className="workout-infos">
             <div className="description">
               <h5>Description</h5> {workout.description}
