@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getWorkout } from "../services/WorkoutService";
+import { useHistory } from "react-router-dom";
 
 export const categories = ["c1", "c2", "c3", "c4", "c5", "c6", "c7"] as const;
 
@@ -18,7 +19,10 @@ export interface WorkoutRouteParams {
 }
 
 export const Workout = () => {
-  let { id } = useParams<WorkoutRouteParams>();
+  const history = useHistory();
+  const historyState = history.location.state as { from: string };
+
+  const { id } = useParams<WorkoutRouteParams>();
   const [workout, setWorkout] = useState<Workout | undefined>(undefined);
 
   const fetchWorkout = React.useCallback(() => {
@@ -29,10 +33,12 @@ export const Workout = () => {
 
   useEffect(() => fetchWorkout(), [fetchWorkout]);
 
-  console.log();
-
   return (
-    <div className="container mrgnbtm">
+    <div className="container">
+      {historyState ? historyState.from : null}
+      <div onClick={() => history.push(historyState.from)}>
+        Come back to the Workouts list
+      </div>
       {workout ? <> {workout.description}</> : "null"}
     </div>
   );
