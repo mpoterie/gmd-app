@@ -1,0 +1,95 @@
+html {
+  font-family: GuillonLight, sans-serif;
+}
+
+.header {
+  width: 100%;
+  padding: 2%;
+  background-color: #ff7f66;
+  color: white;
+  text-align: center;
+}
+
+.display-board {
+  width: 100%;
+  background-color: rgb(555, 200, 789);
+  padding: 5%;
+}
+
+.number {
+  color: red;
+  font-size: 75px;
+  text-align: center;
+}
+
+.mrgnbtm {
+  margin-top: 20px;
+}
+
+.workout {
+  border: 1px solid black;
+  width: 100%;
+  padding: 50px;
+  margin: 0 0 1rem 0;
+  padding: 0 1rem;
+  height: 300px;
+}
+
+.workout-container {
+  min-width: 200px;
+  max-width: 300px;
+  padding: 50px;
+  margin: 0 0 1rem 0;
+  padding: 0 1rem;
+}
+
+.workouts {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+@media only screen and (min-width: 992px) {
+  .workout-container {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .workout-container {
+    flex-basis: 33.33333333%;
+    max-width: 33.33333333%;
+  }
+}
+
+.paginate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ul {
+  display: inline-block;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.pagination li a {
+  display: inline-block;
+  border: 1px solid rgb(224, 224, 224);
+  color: #000;
+  cursor: pointer;
+  margin-right: 3px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  outline: none;
+  padding: 1rem;
+}
+
+.pagination li.active a {
+  background: rgb(224, 224, 224);
+  outline: none;
+}
